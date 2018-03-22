@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import './plugins/buefy'
+
 export default {
   name: 'App'
 }
