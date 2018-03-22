@@ -24,7 +24,7 @@
                 <button class="button is-link is-dark" @click="login()">Login</button>
               </div>
               <div class="control">
-                <button class="button is-text">Cancel</button>
+                <a class="button" href="/register">Registration</a>
               </div>
             </div>
           </div>
