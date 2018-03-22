@@ -41,11 +41,9 @@
 
 <script>
 import Top from '@/components/Top.vue'
-import BField from "buefy/src/components/field/Field";
 
 export default {
   components: {
-    BField,
     Top
   },
   data () {

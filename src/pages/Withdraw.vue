@@ -87,7 +87,7 @@
 </template>
 
 <script>
-
+import Top from '@/components/Top.vue'
 const data = [
   {'amount': '2', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-10-15 13:43:27', 'status': true},
   {'amount': '3', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-12-15 06:00:53', 'status': true},
@@ -95,7 +95,7 @@ const data = [
   {'amount': '11', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-04-10 10:28:46', 'status': true},
   {'amount': '56', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-12-06 14:38:38', 'status': false}
 ]
-import Top from '@/components/Top.vue'
+
 export default {
   components: {
     Top
