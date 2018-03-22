@@ -10,7 +10,7 @@
 
       <b>ETH Deposit Address:</b>
       <b-message type="is-success">
-        <p>{{ ethadd }}</p>
+        <p><b>{{ ethadd }}</b></p>
         <br>
         <button class="button is-small is-info" @click="copy()">
           Copy address
