@@ -39,11 +39,13 @@
         </b-table>
       </div>
     </section>
+    <bottom></bottom>
   </div>
 </template>
 
 <script>
 import Top from '@/components/Top.vue'
+import Bottom from '@/components/Bottom.vue'
 
 const data = [
   {'coin': 'ETH', 'name': 'Ethereum', 'balance': 123, 'inOrder': 1},
@@ -52,7 +54,8 @@ const data = [
 
 export default {
   components: {
-    Top
+    Top,
+    Bottom
   },
   data () {
     return {

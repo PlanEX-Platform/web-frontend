@@ -83,11 +83,13 @@
         </div>
       </div>
     </section>
+    <bottom></bottom>
   </div>
 </template>
 
 <script>
 import Top from '@/components/Top.vue'
+import Bottom from '@/components/Bottom.vue'
 const data = [
   {'amount': '2', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-10-15 13:43:27', 'status': true},
   {'amount': '3', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-12-15 06:00:53', 'status': true},
@@ -98,7 +100,8 @@ const data = [
 
 export default {
   components: {
-    Top
+    Top,
+    Bottom
   },
   methods: {
     copy () {
