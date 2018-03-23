@@ -30,21 +30,24 @@
               </b-input>
             </b-field>
             <b-field>
-              <a class="button is-primary">Save</a>
+              <a class="button is-dark">Save</a>
             </b-field>
           </div>
         </div>
       </div>
     </section>
+    <bottom></bottom>
   </div>
 </template>
 
 <script>
 import Top from '@/components/Top.vue'
+import Bottom from '@/components/Bottom.vue'
 
 export default {
   components: {
-    Top
+    Top,
+    Bottom
   },
   data () {
     return {

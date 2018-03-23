@@ -30,11 +30,13 @@
     <section class="section">
       <trading-history></trading-history>
     </section>
+    <bottom></bottom>
   </div>
 </template>
 
 <script>
 import Top from '@/components/Top.vue'
+import Bottom from '@/components/Bottom.vue'
 import MarketInfo from '@/components/MarketInfo.vue'
 import Chart from '@/components/Chart.vue'
 import OrderBook from '@/components/OrderBook.vue'
@@ -45,6 +47,7 @@ import TradingHistory from '@/components/TradingHistory.vue'
 export default {
   components: {
     Top,
+    Bottom,
     MarketInfo,
     Chart,
     OrderBook,
