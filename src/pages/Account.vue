@@ -53,6 +53,11 @@ export default {
     return {
       email: 'some@some.com'
     }
+  },
+  mounted () {
+    if (!this.$auth.isAuthenticated()) {
+      this.router.push('/login')
+    }
   }
 }
 </script>
