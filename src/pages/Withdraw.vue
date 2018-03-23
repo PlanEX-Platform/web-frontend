@@ -137,7 +137,7 @@ export default {
   },
   mounted () {
     if (!this.$auth.isAuthenticated()) {
-      this.router.push('/login')
+      this.$router.push('/login')
     }
   }
 }
