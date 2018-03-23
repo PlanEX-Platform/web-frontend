@@ -123,7 +123,7 @@ export default {
           type: 'is-danger'
         })
       }
-    },
+    }
   }
 }
 </script>
