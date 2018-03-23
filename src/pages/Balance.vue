@@ -62,6 +62,11 @@ export default {
       data,
       defaultOpenedDetails: ['ETH']
     }
+  },
+  mounted () {
+    if (!this.$auth.isAuthenticated()) {
+      this.router.push('/login')
+    }
   }
 }
 </script>

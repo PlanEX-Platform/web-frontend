@@ -109,6 +109,11 @@ export default {
       currentPage: 1,
       perPage: 5
     }
+  },
+  mounted () {
+    if (!this.$auth.isAuthenticated()) {
+      this.router.push('/login')
+    }
   }
 }
 </script>

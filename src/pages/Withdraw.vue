@@ -134,6 +134,11 @@ export default {
       inOrder: 0,
       availableBalance: 123
     }
+  },
+  mounted () {
+    if (!this.$auth.isAuthenticated()) {
+      this.router.push('/login')
+    }
   }
 }
 </script>
