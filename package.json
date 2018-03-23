@@ -13,6 +13,7 @@
   "dependencies": {
     "buefy": "^0.6.4",
     "node-sass": "^4.7.2",
+    "plotly.js": "^1.35.2",
     "sass-loader": "^6.0.7",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
