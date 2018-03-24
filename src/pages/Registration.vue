@@ -75,7 +75,6 @@ export default {
       return re.test(email.toLowerCase())
     },
     async signup () {
-      console.log('HERE')
       if (!this.validateEmail(this.username)) {
         this.$toast.open({
           message: 'Invalid email',

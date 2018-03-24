@@ -8,14 +8,14 @@
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input class="input is-dark" type="email" v-model="username" placeholder="Email input">
+                <input class="input is-dark" type="email" v-model="username" placeholder="Email">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Password</label>
               <div class="control">
-                <input class="input is-dark" v-model="password" type="password" placeholder="Password">
+                <input class="input is-dark" v-model="pass" type="password" placeholder="Password">
               </div>
             </div>
 
@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      pass: ''
     }
   },
   methods: {
@@ -69,7 +69,7 @@ export default {
         })
         return
       }
-      if (this.password === '') {
+      if (this.pass === '') {
         this.$toast.open({
           message: 'Could not use empty password',
           type: 'is-danger'
@@ -79,7 +79,7 @@ export default {
       try {
         let resp = await this.$auth.login({
           email: this.username.toLowerCase(),
-          password: this.password
+          password: this.pass
         })
         if (resp.status === 200 && this.$auth.isAuthenticated()) {
           this.$toast.open({
