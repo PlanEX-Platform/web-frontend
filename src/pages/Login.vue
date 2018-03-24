@@ -38,6 +38,7 @@
 <script>
 import Top from '@/components/Top.vue'
 import Bottom from '@/components/Bottom.vue'
+import qs from 'qs'
 
 export default {
   components: {
@@ -77,10 +78,10 @@ export default {
         return
       }
       try {
-        let resp = await this.$auth.login({
+        let resp = await this.$auth.login(qs.stringify({
           email: this.username.toLowerCase(),
           password: this.pass
-        })
+        }))
         if (resp.status === 200 && this.$auth.isAuthenticated()) {
           this.$toast.open({
             message: 'Success sign in!',
