@@ -1,6 +1,6 @@
 <template>
   <div>
-    <top></top>
+    <Header/>
     <section class="section">
       <div class="container">
         <div class="columns">
@@ -53,12 +53,12 @@
 </template>
 
 <script>
-import Top from '@/components/Top.vue'
+import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
 
 export default {
   components: {
-    Top,
+    Header,
     Bottom
   },
   data () {

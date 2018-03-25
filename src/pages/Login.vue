@@ -1,6 +1,6 @@
 <template>
   <div>
-    <top></top>
+    <Header/>
     <section class="section">
       <div class="container">
         <div class="columns">
@@ -24,7 +24,7 @@
                 <button class="button is-link is-dark" @click="login()">Login</button>
               </div>
               <div class="control">
-                <a class="button" href="/register">Registration</a>
+                <router-link class="button" to="/register">Registration</router-link>
               </div>
             </div>
           </div>
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import Top from '@/components/Top.vue'
+import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
 import qs from 'qs'
 
 export default {
   components: {
-    Top,
+    Header,
     Bottom
   },
   computed: {

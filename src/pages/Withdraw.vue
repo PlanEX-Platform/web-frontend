@@ -1,12 +1,11 @@
 <template>
   <div>
-    <top></top>
+    <Header/>
     <section class="section">
       <div class="container">
         <div class="columns">
           <div class="column is-half">
-            <img src="~@/assets/eth.png" style="height: 18px;
-    vertical-align: sub;"/>
+            <img src="~@/assets/eth.png" style="height: 18px; vertical-align: sub;"/>
             <strong>ETH</strong>
             <span> - Ethereum</span>
             <br/>
@@ -50,7 +49,7 @@
             <b>Transaction history:</b>
 
             <b-table
-              :data="data"
+              :data="mockData"
               :paginated="isPaginated"
               :per-page="perPage"
               :current-page.sync="currentPage"
@@ -60,11 +59,11 @@
 
               <template slot-scope="props">
 
-                <b-table-column field="user.amount" label="Amount" centered sortable width="40">
+                <b-table-column field="amount" label="Amount" centered sortable width="40">
                   {{ props.row.amount }}
                 </b-table-column>
 
-                <b-table-column field="user.tx_id" label="Transaction" width="40" centered sortable>
+                <b-table-column field="tx_id" label="Transaction" width="40" centered sortable>
                   <a :href="'https://etherscan.io/tx/' + props.row.tx_id " target="_blank"> {{ props.row.tx_id.slice(0, 15) }}</a>
                 </b-table-column>
 
@@ -88,9 +87,9 @@
 </template>
 
 <script>
-import Top from '@/components/Top.vue'
+import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
-const data = [
+const mockData = [
   {'amount': '2', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-10-15 13:43:27', 'status': true},
   {'amount': '3', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-12-15 06:00:53', 'status': true},
   {'amount': '45', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-04-26 06:26:28', 'status': false},
@@ -100,7 +99,7 @@ const data = [
 
 export default {
   components: {
-    Top,
+    Header,
     Bottom
   },
   methods: {
@@ -122,7 +121,7 @@ export default {
   },
   data () {
     return {
-      data,
+      mockData,
       ethadd: '0xe18caa04d798405a55091ac167828a680e3aadba',
       isPaginated: true,
       isPaginationSimple: false,
@@ -136,9 +135,7 @@ export default {
     }
   },
   mounted () {
-    if (!this.$auth.isAuthenticated()) {
-      this.$router.push('/login')
-    }
+
   }
 }
 </script>

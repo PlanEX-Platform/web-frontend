@@ -5,19 +5,28 @@
 </template>
 
 <script>
-import './plugins/buefy'
 
 export default {
   name: 'App'
 }
 </script>
 
+<style lang="stylus">
+.flex-body
+  min-height 100vh
+  display flex
+  flex-flow column
+
+.flex-1
+  flex: 1
+</style>
+
 <style lang="scss">
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
 
 // Set your colors
-$primary: #8c67ef;
+$primary: #de383e;
 $primary-invert: findColorInvert($primary);
 $twitter: #4099FF;
 $twitter-invert: findColorInvert($twitter);

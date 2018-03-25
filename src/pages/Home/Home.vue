@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <top></top>
+  <main>
+    <Header/>
     <section class="section">
       <div class="container">
       <div class="columns">
@@ -31,22 +31,24 @@
       <trading-history></trading-history>
     </section>
     <bottom></bottom>
-  </div>
+  </main>
 </template>
 
 <script>
-import Top from '@/components/Top.vue'
+import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
-import MarketInfo from '@/components/MarketInfo.vue'
-import Chart from '@/components/Chart.vue'
-import OrderBook from '@/components/OrderBook.vue'
-import InfoTips from '@/components/InfoTips.vue'
-import BuyOrder from '@/components/BuyOrder.vue'
-import SellOrder from '@/components/SellOrder.vue'
-import TradingHistory from '@/components/TradingHistory.vue'
+
+import MarketInfo from './components/MarketInfo.vue'
+import Chart from './components/Chart.vue'
+import OrderBook from './components/OrderBook.vue'
+import InfoTips from './components/InfoTips.vue'
+import BuyOrder from './components/BuyOrder.vue'
+import SellOrder from './components/SellOrder.vue'
+import TradingHistory from './components/TradingHistory.vue'
+
 export default {
   components: {
-    Top,
+    Header,
     Bottom,
     MarketInfo,
     Chart,
@@ -55,6 +57,9 @@ export default {
     BuyOrder,
     SellOrder,
     TradingHistory
+  },
+  mounted () {
+    console.log(this.$auth.isAuthenticated())
   }
 }
 </script>

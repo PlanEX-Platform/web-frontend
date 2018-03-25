@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/pages/Home.vue'
+import Home from '@/pages/Home/Home.vue'
 import Login from '@/pages/Login.vue'
 import Register from '@/pages/Registration.vue'
 import Balance from '@/pages/Balance.vue'
@@ -30,22 +30,26 @@ export default new Router({
     {
       path: '/balance',
       name: 'Balance',
-      component: Balance
+      component: Balance,
+      meta: { requiresAuth: true }
     },
     {
       path: '/account',
       name: 'Account',
-      component: Account
+      component: Account,
+      meta: { requiresAuth: true }
     },
     {
       path: '/deposit',
       name: 'Deposit',
-      component: Deposit
+      component: Deposit,
+      meta: { requiresAuth: true }
     },
     {
       path: '/withdraw',
       name: 'Withdraw',
-      component: Withdraw
+      component: Withdraw,
+      meta: { requiresAuth: true }
     }
   ],
   mode: 'history'

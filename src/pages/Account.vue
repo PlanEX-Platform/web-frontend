@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <top></top>
-    <section class="section">
+  <div class="flex-body">
+    <Header/>
+    <section class="section flex-1">
       <div class="container">
         <div class="columns">
-          <div class="column is-half">
+          <form class="column is-half">
             <h1 class="title">Account settings</h1>
             <b-field>
               <strong>Email address: </strong>{{email}}
@@ -32,7 +32,7 @@
             <b-field>
               <a class="button is-dark">Save</a>
             </b-field>
-          </div>
+          </form>
         </div>
       </div>
     </section>
@@ -41,12 +41,12 @@
 </template>
 
 <script>
-import Top from '@/components/Top.vue'
+import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
 
 export default {
   components: {
-    Top,
+    Header,
     Bottom
   },
   data () {
@@ -55,9 +55,7 @@ export default {
     }
   },
   mounted () {
-    if (!this.$auth.isAuthenticated()) {
-      this.$router.push('/login')
-    }
+
   }
 }
 </script>

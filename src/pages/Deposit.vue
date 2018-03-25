@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <top></top>
-    <section class="section">
+  <div class="flex-body">
+    <Header/>
+    <section class="section flex-1">
       <div class="container">
         <div class="columns">
           <div class="column is-half">
@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import Top from '@/components/Top.vue'
+import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
 const data = [
   {'amount': '2', 'tx_id': '0x6e88a1e7da6c2ccbe7dcbcd7a3e9711c85aef446fc20ce4870a697fa6da7005d', 'date': '2016-10-15 13:43:27', 'status': true},
@@ -79,7 +79,7 @@ const data = [
 ]
 export default {
   components: {
-    Top,
+    Header,
     Bottom
   },
   methods: {
@@ -111,9 +111,7 @@ export default {
     }
   },
   mounted () {
-    if (!this.$auth.isAuthenticated()) {
-      this.$router.push('/login')
-    }
+
   }
 }
 </script>

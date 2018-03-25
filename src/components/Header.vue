@@ -2,7 +2,7 @@
   <nav class="navbar is-dark">
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="/">
+        <router-link class="navbar-item" to="/">
           <div class="logo">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  x="0px" y="0px" viewBox="0 0 235.3 51.3" style="enable-background:new 0 0 235.3 51.3;" xml:space="preserve">
               <g>
@@ -11,21 +11,17 @@
               </g>
             </svg>
           </div>
-        </a>
+        </router-link>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <a class="button is-dark" href="/account">
-                <span>Account</span>
-              </a>
+              <router-link class="button is-dark" to="/account">Account</router-link>
             </p>
             <p class="control">
-              <a class="button is-dark" href="/balance">
-                <span>Balances</span>
-              </a>
+              <router-link class="button is-dark" to="/balance">Balances</router-link>
             </p>
           </div>
         </div>
@@ -35,7 +31,7 @@
 </template>
 
 <style scoped>
-  .logo svg {
+.logo svg {
   width: 82px;
   height: auto;
   fill: #fff;

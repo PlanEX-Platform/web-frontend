@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <top></top>
-    <section class="section">
+  <div class="flex-body">
+    <Header/>
+    <section class="section flex-1">
       <div class="container">
         <b-table
           :data="data"
@@ -33,8 +33,8 @@
           </template>
 
           <template slot="detail" slot-scope="props">
-            <a class="button" href="/deposit">Deposit</a>
-            <a class="button" href="/withdraw">Withdraw</a>
+            <router-link class="button" to="/deposit">Deposit</router-link>
+            <router-link class="button" to="/withdraw">Withdraw</router-link>
           </template>
         </b-table>
       </div>
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import Top from '@/components/Top.vue'
+import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
 
 const data = [
@@ -54,7 +54,7 @@ const data = [
 
 export default {
   components: {
-    Top,
+    Header,
     Bottom
   },
   data () {
@@ -64,9 +64,7 @@ export default {
     }
   },
   mounted () {
-    if (!this.$auth.isAuthenticated()) {
-      this.$router.push('/login')
-    }
+
   }
 }
 </script>
