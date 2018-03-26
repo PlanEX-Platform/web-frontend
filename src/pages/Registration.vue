@@ -55,6 +55,7 @@
 <script>
 import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
+import qs from 'qs'
 
 export default {
   components: {
@@ -100,10 +101,10 @@ export default {
         return
       }
       try {
-        let resp = await this.$auth.register({
+        let resp = await this.$auth.register(qs.stringify({
           email: this.username.toLowerCase(),
           password: this.password
-        })
+        }))
         if (resp.status === 200 && resp.data.status) {
           this.$toast.open({
             message: 'Success sign up!',
