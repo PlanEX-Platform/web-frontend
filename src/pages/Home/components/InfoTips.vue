@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="mbox">
     <p class="title">Tips</p>
   </div>
 </template>

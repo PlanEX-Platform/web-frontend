@@ -1,8 +1,7 @@
 <template>
-  <div class="box">
-    <p class="title">Trading View</p>
-    <div ref="chart"></div>
-  </div>
+  <section class="app-chart">
+    <div ref="chart" style="height: 360px"></div>
+  </section>
 </template>
 
 <script>
@@ -54,6 +53,11 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.app-chart
+  position relative
+</style>
 
 <style>
 .modebar{
