@@ -46,4 +46,8 @@ export default {
   width 100%
   color #fff
   border-radius 2px
+  transition-property background-color
+  transition .2s ease
+  &:hover
+    color #fff
 </style>

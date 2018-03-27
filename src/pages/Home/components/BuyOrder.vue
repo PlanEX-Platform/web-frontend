@@ -20,10 +20,7 @@
 
 <style lang="stylus" scoped>
 .buy-order_btn
-  width 100%
-  color #fff
   border-color #8bc34a
-  border-radius 2px
   background-color #8bc34a
   &:hover
     background-color #85c700

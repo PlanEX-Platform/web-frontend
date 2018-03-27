@@ -55,7 +55,6 @@ export default {
   },
   mounted () {
     console.log(this.$auth.isAuthenticated())
-    console.log(process.browser)
   }
 }
 </script>
@@ -64,7 +63,7 @@ export default {
 @import '~@/styles/vars.styl'
 
 .market-view
-  padding 3rem 1.5rem
+  padding 2rem 1.5rem
   @media screen and (max-width: 769px)
     padding 1rem 0
 

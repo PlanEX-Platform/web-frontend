@@ -8,13 +8,13 @@
         :data="sellOrders"
         :columns="columns"
         narrowed
-        :row-class="(row, index) => 'is-danger'">
+        :row-class="(row, index) => 'ord-sell'">
       </b-table>
       <b-table
         :data="buyOrders"
         :columns="columns"
         :narrowed="true"
-        :row-class="(row, index) => 'is-success'">
+        :row-class="(row, index) => 'ord-buy'">
       </b-table>
     </div>
   </div>
@@ -66,17 +66,19 @@ tr {
   font-size: 14px
 }
 
-tr:hover {
-  font-weight: 600;
-  cursor: pointer;
+.ord-sell , .ord-buy {
+  &:hover {
+    font-weight: 600;
+    cursor: pointer;
+  }
 }
 
-tr.is-danger {
+tr.ord-sell {
   color: $danger;
   // color: #fff;
 }
 
-tr.is-success {
+tr.ord-buy {
   color: $success;
   // color: #fff;
 }
