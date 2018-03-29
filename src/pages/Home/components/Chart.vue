@@ -31,7 +31,14 @@ export default {
           selected: 1,
           inputEnabled: false
         },
-
+        plotOptions: {
+          candlestick: {
+            lineColor: '#000',
+            color: '#ff007a',
+            upColor: '#64dd17',
+            upLineColor: '#000'
+          }
+        },
         title: {
         },
         scrollbar: {
