@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="flex-body">
     <Header/>
-    <section class="section">
+    <section class="section flex-1">
       <div class="container">
         <div class="columns">
           <div class="column is-one-third">
@@ -57,26 +57,7 @@ export default {
     }
   },
   methods: {
-    validateEmail (email) {
-      // eslint-disable-next-line
-      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      return re.test(email.toLowerCase())
-    },
     async login () {
-      if (!this.validateEmail(this.username)) {
-        this.$toast.open({
-          message: 'Invalid email',
-          type: 'is-danger'
-        })
-        return
-      }
-      if (this.pass === '') {
-        this.$toast.open({
-          message: 'Could not use empty password',
-          type: 'is-danger'
-        })
-        return
-      }
       try {
         let resp = await this.$auth.login(qs.stringify({
           email: this.username.toLowerCase(),
@@ -96,11 +77,7 @@ export default {
           })
         }
       } catch (err) {
-        console.log(err)
-        this.$toast.open({
-          message: 'Sign in failed!',
-          type: 'is-danger'
-        })
+        throw new Error(err)
       }
     }
   }

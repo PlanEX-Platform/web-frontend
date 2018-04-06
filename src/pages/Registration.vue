@@ -1,28 +1,46 @@
 <template>
-  <div>
+  <div class="flex-body">
     <Header/>
-    <section class="section">
+    <section class="section flex-1">
       <div class="container">
         <div class="columns">
           <div class="column is-one-third">
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input class="input is-dark" v-model="username" type="email" placeholder="Email input">
+                <input
+                  v-model="email"
+                  @input="$v.email.$touch"
+                  :class="{'is-danger': $v.email.$error, 'is-success': $v.email.$dirty && !$v.email.$invalid}"
+                  class="input is-dark"
+                  type="email"
+                  placeholder="Email input">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Password</label>
               <div class="control">
-                <input class="input is-dark" v-model="password" type="password" placeholder="Password">
+                <input
+                  v-model="password"
+                  @input="$v.password.$touch"
+                  :class="{'is-danger': $v.password.$error, 'is-success': $v.password.$dirty && !$v.password.$invalid}"
+                  class="input is-dark"
+                  type="password"
+                  placeholder="Password">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Repeat Password</label>
               <div class="control">
-                <input class="input is-dark" type="password" placeholder="Password">
+                <input
+                  v-model="pwdRepeat"
+                  @input="$v.pwdRepeat.$touch"
+                  :class="{'is-danger': $v.pwdRepeat.$error, 'is-success': $v.pwdRepeat.$dirty && !$v.pwdRepeat.$invalid}"
+                  class="input is-dark"
+                  type="password"
+                  placeholder="Password">
               </div>
             </div>
 
@@ -41,7 +59,7 @@
                 <button class="button is-link is-dark" @click="signup()">Register</button>
               </div>
               <div class="control">
-                <button class="button is-text">Cancel</button>
+                <button class="button is-text" @click="$router.push('/login')" v-text="'Cancel'"/>
               </div>
             </div>
           </div>
@@ -56,6 +74,15 @@
 import Header from '@/components/Header.vue'
 import Bottom from '@/components/Bottom.vue'
 import qs from 'qs'
+import { email, required, sameAs, minLength } from 'vuelidate/lib/validators'
+
+const isPassword = pwd => {
+  if (pwd.length === 0) return false
+  if (/[A-Z]/.test(pwd) === false) return false
+  if (/\d/.test(pwd) === false) return false
+
+  return true
+}
 
 export default {
   components: {
@@ -65,64 +92,56 @@ export default {
   data () {
     return {
       checkboxAgreementsFlag: false,
-      username: '',
-      password: ''
+      email: '',
+      password: '',
+      pwdRepeat: ''
     }
   },
-  methods: {
-    validateEmail (email) {
-      // eslint-disable-next-line
-      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      return re.test(email.toLowerCase())
+  validations: {
+    checkboxAgreementsFlag: { required },
+    email: { email, required },
+    password: {
+      isPassword, minLength: minLength(8)
     },
+    pwdRepeat: {
+      required,
+      sameAsPassword: sameAs('password')
+    }
+  },
+  computed: {
+    validated () {
+      this.$v.$touch()
+      return !this.$v.$invalid
+    }
+  },
+  mounted () {
+  },
+  methods: {
     async signup () {
-      if (!this.validateEmail(this.username)) {
-        this.$toast.open({
-          message: 'Invalid email',
-          type: 'is-danger'
-        })
-        return
-      }
-      // eslint-disable-next-line
-      if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(this.password)) {
-        this.$toast.open({
-          message: `Password should contain at least one digit, one lower case, one upper case, 8 characters`,
-          type: 'is-light',
-          duration: 10000
-        })
-        return
-      }
-      if (!this.checkboxAgreementsFlag) {
-        this.$toast.open({
-          message: `Sorry you can't proceed without accepting our agreements`,
-          type: 'is-info',
-          duration: 10000
-        })
-        return
-      }
-      try {
-        let resp = await this.$auth.register(qs.stringify({
-          email: this.username.toLowerCase(),
-          password: this.password
-        }))
-        if (resp.status === 200 && resp.data.status) {
-          this.$toast.open({
-            message: 'Success sign up!',
-            type: 'is-success'
-          })
-          this.$router.push('/successsignup')
-        } else {
-          this.$toast.open({
-            message: 'Sign up failed! ' + resp.data.error,
-            type: 'is-danger'
-          })
+      if (this.validated) {
+        try {
+          let resp = await this.$auth.register(qs.stringify({
+            user: this.email.toLowerCase(),
+            password: this.password
+          }))
+          if (resp.status === 200 && resp.data.status) {
+            this.$toast.open({
+              message: 'Success sign up!',
+              type: 'is-success'
+            })
+            // this.$store.commit('SUCCESS_LOGIN') // change auth state
+            this.$router.push('/')
+          } else {
+            this.$toast.open({
+              message: 'Sign up failed! ' + resp.data.error,
+              type: 'is-danger'
+            })
+          }
+        } catch (err) {
+          throw new Error(err)
         }
-      } catch (err) {
-        console.log(err)
-        this.$toast.open({
-          message: 'Sign up failed!',
-          type: 'is-danger'
-        })
+      } else {
+        // err
       }
     }
   }
