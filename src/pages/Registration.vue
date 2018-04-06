@@ -121,7 +121,7 @@ export default {
       if (this.validated) {
         try {
           let resp = await this.$auth.register(qs.stringify({
-            user: this.email.toLowerCase(),
+            email: this.email.toLowerCase(),
             password: this.password
           }))
           if (resp.status === 200 && resp.data.status) {
