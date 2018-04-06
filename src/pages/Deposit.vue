@@ -100,7 +100,7 @@ export default {
     },
     async updateDepositAddress () {
       try {
-        let resp = await this.axios.post('/deposit')
+        let resp = await this.$http.post('/deposit')
         if (resp.data) {
           this.ethadd = resp.data.account
         }

@@ -68,6 +68,7 @@ export default {
             message: 'Success sign in!',
             type: 'is-success'
           })
+          this.$store.commit('SUCCESS_LOGIN')
           this.$router.push('/deposit')
         } else {
           this.$toast.open({
