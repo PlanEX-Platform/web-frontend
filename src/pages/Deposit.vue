@@ -97,6 +97,16 @@ export default {
         actionText: 'Ok',
         indefinite: false
       })
+    },
+    async updateDepositAddress () {
+      try {
+        let resp = await this.axios.post('/deposit')
+        if (resp.data) {
+          this.ethadd = resp.data.account
+        }
+      } catch (err) {
+        console.log(err)
+      }
     }
   },
   data () {
@@ -111,7 +121,7 @@ export default {
     }
   },
   mounted () {
-
+    this.updateDepositAddress()
   }
 }
 </script>
