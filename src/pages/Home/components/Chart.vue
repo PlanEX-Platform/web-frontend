@@ -46,7 +46,7 @@ export default {
         },
         series: [{
           type: 'candlestick',
-          name: 'somename',
+          name: 'BABA\\ETH',
           data: chartData,
 
           tooltip: {

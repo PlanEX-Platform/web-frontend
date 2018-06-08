@@ -2,7 +2,7 @@
   <header class="market-info_cont">
     <div class="market-info_title">
       <p class="pair">
-        <span class="pair_main">ETH</span> / <span class="pair_sec">Baba</span>
+        <span class="pair_main">ETH</span> / <span class="pair_sec">BABA</span>
       </p>
     </div>
     <div class="para-info">

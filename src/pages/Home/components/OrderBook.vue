@@ -27,7 +27,7 @@ export default {
       lastPrice: 0.00123300,
       columns: [
         {field: 'price', label: 'Price'},
-        {field: 'baba', label: 'BaBa'},
+        {field: 'baba', label: 'BABA'},
         {field: 'eth', label: 'ETH'}],
       sellOrders: [{ price: 0.00004789, baba: 111.07512390, eth: 0.00531939 }, { price: 0.00004789, baba: 111.07512390, eth: 0.00531939 }, { price: 0.00004789, baba: 111.07512390, eth: 0.00531939 }],
       buyOrders: [{ price: 0.00004736, baba: 41.09797297, eth: 0.00194640 }, { price: 0.00004789, baba: 111.07512390, eth: 0.00531939 }]
