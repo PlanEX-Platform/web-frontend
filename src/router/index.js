@@ -31,25 +31,25 @@ export default new Router({
       path: '/balance',
       name: 'Balance',
       component: Balance,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     },
     {
       path: '/account',
       name: 'Account',
       component: Account,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     },
     {
       path: '/deposit',
       name: 'Deposit',
       component: Deposit,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     },
     {
       path: '/withdraw',
       name: 'Withdraw',
       component: Withdraw,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     }
   ],
   mode: 'history'
